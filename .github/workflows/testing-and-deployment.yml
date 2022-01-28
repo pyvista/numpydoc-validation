@@ -32,13 +32,12 @@ jobs:
           flit install --extra test
 
       - name: Test
-        run: |
-          pytest --cov numpydoc_validation
+        working-directory: tests
+        run: pytest --cov numpydoc_validation
 
       - name: Upload to PyPi
-        if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+        if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags') && ${{ runner.os == 'Linux' }} && {{ matrix.python-version == '3.8' }}
         run: flit publish
         env:
-          TWINE_USERNAME: "__token__"
-          TWINE_PASSWORD: ${{ secrets.TWINE_TOKEN }}
-          TWINE_REPOSITORY_URL: "https://upload.pypi.org/legacy/"
+          FLIT_USERNAME: "__token__"
+          FLIT_PASSWORD: ${{ secrets.TWINE_TOKEN }}
