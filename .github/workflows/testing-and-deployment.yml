@@ -38,7 +38,8 @@ jobs:
       - name: Upload to PyPi
         if: |
           startsWith(github.event.ref, 'refs/tags') &&
-          ${{ runner.os == 'Linux' && matrix.python-version == '3.8' }}
+          runner.os == 'Linux' &&
+          matrix.python-version == '3.9'
         run: flit publish
         env:
           FLIT_USERNAME: "__token__"
