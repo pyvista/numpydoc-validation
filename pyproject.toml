@@ -6,7 +6,7 @@ build-backend = "flit_core.buildapi"
 name = "numpydoc_validation"
 authors = [{name = "Alex Kaszynski", email = "akascap@gmail.com"}]
 dynamic = ["version", "description"]
-requires = [
+dependencies = [
     "numpydoc >=1.0",
 ]
 
