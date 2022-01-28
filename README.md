@@ -30,8 +30,11 @@ pip install numpydoc-validate
 ### Basic Usage
 
 ```
->>> import numpydoc_validate
->>> warnings = numpydoc_validate.validate_recursive("numpy")
+>>> import numpydoc_validation
+>>> n_invalid, report = numpydoc_validation.validate_recursive("numpy")
+>>> n_invalid
+436
+>>> print(report)
 ...
 Numpydoc Validation warnings for 'numpy.zeros_like':
   GL02: Closing quotes should be placed in the line after the last
@@ -54,10 +57,11 @@ Numpydoc Validation warnings for 'numpy.zeros_like':
 Recursively check all the docstrings of the ``numpy`` module but only check
 for ``"SS01"``, no summary found.  Also, exclude ``numpy.ndarray``.
 
->>> import numpydoc_validate
->>> warnings = numpydoc_validate.validate_recursive(
-        "numpy", checks={"SS01"}, exclude={r"\.ndarray$"}
-    )
+>>> import numpydoc_validation
+>>> n_invalid, report = numpydoc_validation.validate_recursive(
+...     "numpy", checks={"SS01"}, exclude={r"\.ndarray$"}
+... )
+>>> print(report)
 Numpydoc validation warnings for 'numpy.core._multiarray_umath._fastCopyAndTranspose':
   SS01: No summary found (a short summary in a single line should be
         present at the beginning of the docstring)

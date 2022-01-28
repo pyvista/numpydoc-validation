@@ -6,6 +6,9 @@ build-backend = "flit_core.buildapi"
 name = "numpydoc_validation"
 authors = [{name = "Alex Kaszynski", email = "akascap@gmail.com"}]
 dynamic = ["version", "description"]
+dependencies = [
+    "numpydoc >=1.0",
+]
 
 [project.urls]
 Home = "https://github.com/pyvista/numpydoc_validation"
