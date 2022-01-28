@@ -29,7 +29,7 @@ pip install numpydoc-validate
 
 ### Basic Usage
 
-```
+```py
 >>> import numpydoc_validation
 >>> n_invalid, report = numpydoc_validation.validate_recursive("numpy")
 >>> n_invalid
