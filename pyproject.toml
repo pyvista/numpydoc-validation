@@ -1,0 +1,17 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "numpydoc_validation"
+authors = [{name = "Alex Kaszynski", email = "akascap@gmail.com"}]
+dynamic = ["version", "description"]
+
+[project.urls]
+Home = "https://github.com/pyvista/numpydoc_validation"
+
+[project.optional-dependencies]
+test = [
+    "pytest >=2.7.3",
+    "pytest-cov",
+]
